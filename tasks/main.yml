@@ -1,0 +1,10 @@
+---
+
+- name: copy plugins
+  unarchive:
+    src="{{xpc_archive}}"
+    dest=/var/www/html
+    owner="{{ xpc_user }}"
+    group="{{ xpc_group }}"
+    mode=0644
+

@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: gsfjohnson
+  description: XpressConnect-WZ ansible role
+  company: nil
+  license: Apache
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+  categories:
+dependencies:
