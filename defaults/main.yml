@@ -1,5 +1,5 @@
 ---
 
 xpc_archive: XpressConnect_PKG3987_SVR688_U1293_PHP_5-0-255_20151022.tar.gz
-xpc_user: http
-xpc_group: http
+xpc_user: apache
+xpc_group: apache
