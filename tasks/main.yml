@@ -1,10 +1,31 @@
 ---
 
-- name: copy plugins
+- name: get package url
+  get_url: url={{item.url}} dest=/tmp/{{item.name}} timeout=240
+  when: item.url is defined and item.name is defined
+  with_items: xpc_archives
+
+- name: get package guid
+  get_url: url="https://xpc.cloudpath.net/download_tar.php?guid={{item.guid}}" dest=/tmp/{{item.name}} timeout=240
+  when: item.guid is defined and item.name is defined
+  with_items: xpc_archives
+
+- name: move {{xpc_web_dir}} to /tmp/xpc_backup_{{ansible_date_time.date}}
+  command: "mv {{xpc_web_dir}} /tmp/xpc_backup_{{ansible_date_time.date}}"
+  args:
+    creates: "/tmp/xpc_backup_{{ansible_date_time.date}}"
+
+- name: mkdir {{xpc_web_dir}}
+  file: state=directory name={{xpc_web_dir}} mode=0755
+  
+- name: unarchive package
   unarchive:
-    src="{{xpc_archive}}"
-    dest=/var/www/html
+    src=/tmp/{{item.name}}
+    dest="{{xpc_web_dir}}"
     owner="{{ xpc_user }}"
     group="{{ xpc_group }}"
     mode=0644
+    copy=no
+  when: item.name is defined
+  with_items: xpc_archives
 

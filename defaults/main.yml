@@ -1,5 +1,11 @@
 ---
 
-xpc_archive: XpressConnect_PKG3987_SVR688_U1293_PHP_5-0-255_20151022.tar.gz
+xpc_web_dir: /var/www/html
+xpc_archives: []
+#  - name: XpressConnect_PKG_xxx.tar.gz
+#  - name: xpc-prod.tgz
+#    url: "https://xpc.cloudpath.net/download_tar.php?guid={CFA5CBA5-5337-4017-A529-A7A527B67D34}"
+#  - name: "xpc_prod_{{ansible_date_time.date}}.tgz"
+#    guid: "{CFA5CBA5-5337-4017-A529-A7A527B67D34}"
 xpc_user: apache
 xpc_group: apache
