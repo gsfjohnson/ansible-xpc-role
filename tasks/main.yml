@@ -24,7 +24,6 @@
     dest="{{xpc_web_dir}}"
     owner="{{ xpc_user }}"
     group="{{ xpc_group }}"
-    mode=0644
     copy=no
   when: item.name is defined
   with_items: xpc_archives
